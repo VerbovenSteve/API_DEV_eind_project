@@ -16,7 +16,6 @@ security = HTTPBasic()
 
 origins = [
     "http://localhost",
-    "http://127.0.0.1:8000",
     "https://main--illustrious-daifuku-1e9cbe.netlify.app/",
     "https://localhost:8080",
     "http://127.0.0.1:5500",
