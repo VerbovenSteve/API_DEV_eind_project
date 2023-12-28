@@ -37,6 +37,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Create SQLite database
+        run: |
+          cd myproject
+          mkdir -p sqlitedb
+          sqlite3 sqlitedb/sqlitedata.db ".databases"
+
       - name: Run uvicorn
         run: | 
           cd myproject
