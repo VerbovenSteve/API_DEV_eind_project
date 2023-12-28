@@ -12,7 +12,6 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import auth
 
 app = FastAPI()
-security = HTTPBasic()
 
 origins = [
     "http://localhost",
