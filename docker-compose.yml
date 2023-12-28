@@ -1,11 +1,11 @@
 version: "3.9"
 services:
  useritem-api-service:
-  image: r0949032/api_development
+  image: r0949032/api_dev_eind_project
   ports:
     - "8000:8000"
   volumes:
-    - sqlite_db:/code/sqlitedb
+    - sqlite_db_eind_project:/code/sqlitedb
 
 volumes:
-  sqlite_db:
+  sqlite_db_eind_project:
