@@ -1,18 +1,26 @@
 import os.path
-from fastapi import FastAPI, Depends, HTTPException, Query
+import secrets
+from fastapi import FastAPI, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 from database import engine, SessionLocal
 import crud
 import models
 import schemas
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+import auth
 
 app = FastAPI()
+security = HTTPBasic()
 
 origins = [
     "http://localhost",
     "http://127.0.0.1:8000",
-    "https://main--illustrious-daifuku-1e9cbe.netlify.app/"
+    "https://main--illustrious-daifuku-1e9cbe.netlify.app/",
+    "https://localhost:8080",
+    "http://127.0.0.1:5500",
+    "https://localhost.tiangolo.com"
 ]
 
 app.add_middleware(
@@ -23,14 +31,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 if not os.path.exists('.\sqlitedb'):
     os.makedirs('.\sqlitedb')
 
 models.Base.metadata.create_all(bind=engine)
-
-app = FastAPI()
-
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def get_db_session():
     db = SessionLocal()
@@ -40,6 +45,38 @@ def get_db_session():
         db.close()
 
 
+
+
+@app.post("/token", tags=["Users"])
+def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db_session)):
+    user = auth.authenticate_user(db, form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(
+            status_code=401,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    access_token = auth.create_access_token(
+        data={"sub": user.email}
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
+
+
+
+@app.get("/users/me", response_model=schemas.User)
+def read_users_me(db: Session = Depends(get_db_session), token: str = Depends(oauth2_scheme)):
+    current_user = auth.get_current_active_user(db, token)
+    return current_user
+
+
+@app.post("/users/", response_model=schemas.User)
+def create_user(user: schemas.UserCreate, db: Session = Depends(get_db_session)):
+    db_user = crud.get_user_by_email(db, email=user.email)
+    if db_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    return crud.create_user(db=db, user=user)
+
+
 # Endpoint to get all films
 @app.get("/films", response_model=schemas.FilmListOut)
 def read_films(skip: int = 0, limit: int = 100, db: Session = Depends(get_db_session)):
@@ -47,7 +84,6 @@ def read_films(skip: int = 0, limit: int = 100, db: Session = Depends(get_db_ses
     if not films:
         raise HTTPException(status_code=404, detail="No films found")
     return {"films": films}
-
 
 
 # Endpoint to create a film
@@ -60,12 +96,6 @@ def create_film(film: schemas.FilmCreate, db: Session = Depends(get_db_session))
 
 
 # Endpoint to delete all films
-@app.delete("/films/")
-def delete_films(db: Session = Depends(get_db_session)):
-    result = crud.delete_films(db)
-    if result:
-        raise HTTPException(status_code=500, detail="Failed to delete films")
-    return {"message": "All films deleted"}
 
 
 # Endpoint to delete one film
@@ -101,15 +131,6 @@ def create_person(person: schemas.PersonCreate, db: Session = Depends(get_db_ses
     return db_person
 
 
-# Endpoint to delete all persons
-@app.delete("/persons")
-def delete_persons(db: Session = Depends(get_db_session)):
-    result = crud.delete_persons(db)
-    if result:
-        raise HTTPException(status_code=400, detail="Failed to delete persons")
-    return {"message": "All persons deleted"}
-
-
 # Endpoint to get all starships
 @app.get("/starships", response_model=schemas.StarshipListOut)
 def read_starships(skip: int = 0, limit: int = 100, db: Session = Depends(get_db_session)):
@@ -128,17 +149,8 @@ def create_starship(starship: schemas.StarshipCreate, db: Session = Depends(get_
     return db_starship
 
 
-# Endpoint to delete all starships
-@app.delete("/starships")
-def delete_starships(db: Session = Depends(get_db_session)):
-    result = crud.delete_starships(db)
-    if result:
-        raise HTTPException(status_code=500, detail="Failed to delete starships")
-    return {"message": "All starships deleted"}
-
-
 @app.get("/films/all_with_characters_starships")
-def get_all_films_with_characters_starships(db: Session = Depends(get_db_session)):
+def get_all_films_with_characters_starships(db: Session = Depends(get_db_session), token: str = Depends(oauth2_scheme)):
     films = db.query(models.Film).all()
     film_data = []
 
@@ -155,6 +167,21 @@ def get_all_films_with_characters_starships(db: Session = Depends(get_db_session
 
     return film_data
 
+@app.put("/films/{film_id}")
+def update_film_title(film_id: int, film_update: schemas.FilmUpdate):
+    db = SessionLocal()
+    film = db.query(models.Film).filter(models.Film.id == film_id).first()
+
+    if film:
+        film.title = film_update.title
+        db.commit()
+        db.refresh(film)
+        return {"message": "Titel bijgewerkt"}
+    else:
+        raise HTTPException(status_code=404, detail="Film niet gevonden")
+
 
 if __name__ == "__main__":
     models.Base.metadata.create_all(bind=engine)
+
+

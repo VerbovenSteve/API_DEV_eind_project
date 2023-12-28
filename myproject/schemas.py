@@ -1,4 +1,4 @@
-# bassmodel van response model  maar aangepast
+# basemodel van response model  maar aangepast
 from pydantic import BaseModel
 
 
@@ -65,3 +65,22 @@ class StarshipOut(StarshipBaseIn):
 
 class StarshipListOut(BaseModel):
     starships: list[StarshipOut] = []  # out
+
+
+class UserBase(BaseModel):
+    email: str
+
+
+class UserCreate(UserBase):
+    password: str
+
+
+class User(UserBase):
+    id: int
+    is_active: bool
+
+    class Config:
+        orm_mode = True
+
+class FilmUpdate(BaseModel):
+    title: str
