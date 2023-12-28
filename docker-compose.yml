@@ -1,6 +1,6 @@
 version: "3.9"
 services:
- useritem-api-service:
+ star_wars_api:
   image: r0949032/api_dev_eind_project
   ports:
     - "8000:8000"
