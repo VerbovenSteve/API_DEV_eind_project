@@ -103,37 +103,37 @@ Deze request haalt alle starships uit de database.
 ### Error handeling starships
 
 Als je verkeerde skip en limit ingeeft voor de id van de starship krijg je een error.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/f8683fc3-46b2-4cf8-a072-80e77ac87949)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/fc051508-61b1-467a-81c5-a5b2e9225a3e)
+
 
 
 ### get /films/all_with_characters_starships
 
 Deze request haalt heel de database op met alle films, personages en starships.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/c964119b-af2e-4634-a43c-5d5dd7e72e54)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/b10fd717-d238-4cfd-96c2-257997e1d8e1)
 
-> Als laatste gaan we verder met de delete requests.
+> Nu zal ik een update doen van de naam van een film dit
+
+## PUT
+
+### put /films/{film_id}
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/ec7beb9b-63a8-4121-b6ac-e9aea3922696)
+
+
+> Hierna volgt de delete request
 
 ## Delete 
 
-### delete /films/
-
-Deze delete zal alle films verwijderen.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/097fd5c4-0761-47dd-8d7c-8c5bec6406f1)
-
 ### delete /films/{film_id}
+Als we een film willen verwijderen uit de data bank dan kunnen we dit als volgt doen. Je geeft in de url de id mee en deze word dan verwijdert.
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/b1c899aa-2acb-4f22-85f6-2901e2dc82b2)
 
+
+### Errorhandeling delete /films/{film_id}
 Als de film id niet bestaat en je wil deleten dan krijg je een error.
 ![image](https://github.com/VerbovenSteve/api_development/assets/113888137/f1393bd1-12fe-42ac-adbf-ce0611b16951)
 
-### delete /persons
 
-Deze delete zal alle persons verwijderen uit de database.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/4a654529-71c0-4069-bf14-78d7c325ec0b)
-
-### delete /starships
-
-Als je de starships wil verwijderen uit de database.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/d71ffcd8-13dc-45e7-9f9b-2f35dfb61128)
 
 # De database is terug leeg?
 
