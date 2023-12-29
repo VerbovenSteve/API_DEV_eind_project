@@ -45,7 +45,7 @@ def get_db_session():
 
 
 
-@app.post("/token", tags=["Users"])
+@app.post("/token", tags=["Post"])
 def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db_session)):
     user = auth.authenticate_user(db, form_data.username, form_data.password)
     if not user:
@@ -61,13 +61,13 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
 
 
 
-@app.get("/users/me", response_model=schemas.User)
+@app.get("/users/me", response_model=schemas.User, tags=["Get"])
 def read_users_me(db: Session = Depends(get_db_session), token: str = Depends(oauth2_scheme)):
     current_user = auth.get_current_active_user(db, token)
     return current_user
 
 
-@app.post("/users/", response_model=schemas.User)
+@app.post("/users/", response_model=schemas.User, tags=["Post"])
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db_session)):
     db_user = crud.get_user_by_email(db, email=user.email)
     if db_user:
@@ -76,7 +76,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db_session))
 
 
 # Endpoint to get all films
-@app.get("/films", response_model=schemas.FilmListOut)
+@app.get("/films", response_model=schemas.FilmListOut, tags=["Get"])
 def read_films(skip: int = 0, limit: int = 100, db: Session = Depends(get_db_session)):
     films = crud.get_films(db, skip=skip, limit=limit)
     if not films:
@@ -85,7 +85,7 @@ def read_films(skip: int = 0, limit: int = 100, db: Session = Depends(get_db_ses
 
 
 # Endpoint to create a film
-@app.post("/films", response_model=schemas.FilmOut)
+@app.post("/films", response_model=schemas.FilmOut, tags=["Post"])
 def create_film(film: schemas.FilmCreate, db: Session = Depends(get_db_session)):
     db_film = crud.create_film(db, film)
     if db_film is None:
@@ -97,16 +97,16 @@ def create_film(film: schemas.FilmCreate, db: Session = Depends(get_db_session))
 
 
 # Endpoint to delete one film
-@app.delete("/films/{film_id}")
+@app.delete("/films/{film_id}", tags=["delete"])
 def delete_film(film_id: int, db: Session = Depends(get_db_session)):
-    film = crud.get_film_by_id(db, film_id=film_id)
+    film = crud.get_film_by_id(db, film_id=film_id, )
     if not film:
         raise HTTPException(status_code=404, detail="Film not Found")
     crud.delete_film(db, film_id)
     return {"message": "Film was succesfully deleted!"}
 
 
-@app.get("/persons/")
+@app.get("/persons/", tags=["Get"])
 def read_persons_by_name(name: str = Query(None, description="Name of the person to search for"),
                          db: Session = Depends(get_db_session)):
     if name:
@@ -121,7 +121,7 @@ def read_persons_by_name(name: str = Query(None, description="Name of the person
 
 
 # Endpoint to create a person
-@app.post("/persons", response_model=schemas.PersonOut)
+@app.post("/persons", response_model=schemas.PersonOut, tags=["Post"])
 def create_person(person: schemas.PersonCreate, db: Session = Depends(get_db_session)):
     db_person = crud.create_person(db, person)
     if db_person is None:
@@ -130,7 +130,7 @@ def create_person(person: schemas.PersonCreate, db: Session = Depends(get_db_ses
 
 
 # Endpoint to get all starships
-@app.get("/starships", response_model=schemas.StarshipListOut)
+@app.get("/starships", response_model=schemas.StarshipListOut, tags=["Get"])
 def read_starships(skip: int = 0, limit: int = 100, db: Session = Depends(get_db_session)):
     starships = crud.get_starships(db, skip=skip, limit=limit)
     if not starships:
@@ -139,7 +139,7 @@ def read_starships(skip: int = 0, limit: int = 100, db: Session = Depends(get_db
 
 
 # Endpoint to create a starship
-@app.post("/starships", response_model=schemas.StarshipOut)
+@app.post("/starships", response_model=schemas.StarshipOut, tags=["Post"])
 def create_starship(starship: schemas.StarshipCreate, db: Session = Depends(get_db_session)):
     db_starship = crud.create_starship(db, starship)
     if db_starship is None:
@@ -147,7 +147,7 @@ def create_starship(starship: schemas.StarshipCreate, db: Session = Depends(get_
     return db_starship
 
 
-@app.get("/films/all_with_characters_starships")
+@app.get("/films/all_with_characters_starships", tags=["Get"])
 def get_all_films_with_characters_starships(db: Session = Depends(get_db_session), token: str = Depends(oauth2_scheme)):
     films = db.query(models.Film).all()
     film_data = []
@@ -165,7 +165,7 @@ def get_all_films_with_characters_starships(db: Session = Depends(get_db_session
 
     return film_data
 
-@app.put("/films/{film_id}")
+@app.put("/films/{film_id}", tags=["Put"])
 def update_film_title(film_id: int, film_update: schemas.FilmUpdate):
     db = SessionLocal()
     film = db.query(models.Film).filter(models.Film.id == film_id).first()
