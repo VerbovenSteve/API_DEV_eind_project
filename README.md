@@ -77,7 +77,8 @@ Als er een bepaald starship al in de database staat dan zal er een error gegener
 ### get /films
 
 Deze get request zal ervoor zorgen dat we alle films in de database kunnen ophalen.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/72100ca4-ad50-4d9d-94d6-c1ab20bc0fea)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/0fb6fc1b-2051-4b6f-b306-dcd5785177c1)
+
 
 ### Error handeling get /films
 
