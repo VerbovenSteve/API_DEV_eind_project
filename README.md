@@ -83,7 +83,8 @@ Deze get request zal ervoor zorgen dat we alle films in de database kunnen ophal
 ### Error handeling get /films
 
 Als we een film gaan zoeken met een id dat niet in de database te vinden is krijgen we een error.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/726c8cc3-1f04-43a1-a202-ca1eaf8bc57c)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/4a608a49-18c4-4363-840c-503527ea7529)
+
 
 
 ### get /persons/
