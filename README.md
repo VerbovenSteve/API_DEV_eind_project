@@ -33,7 +33,8 @@ In het volgende deel zal ik alle functies laten zien van de interface.
 ### post /films
 
 Deze post zal zorgen dat we een film in de databank kunnen zetten
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/5c03458c-620a-4ed0-aeda-50cc14dc322a)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/9f276062-415d-4202-bbcc-54b7d2e790be)
+
 
 ### Error handeling post /films
 
