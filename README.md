@@ -39,30 +39,35 @@ Deze post zal zorgen dat we een film in de databank kunnen zetten
 ### Error handeling post /films
 
 Als een film al bestaat in de database dan zal bij het opnieuw toevoegen een error komen. deze zal als volgt eruit zien.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/12271803-e734-46ff-9a24-8964b9de02bc)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/73a9c429-665b-464c-b39a-6bb947459f20)
+
 
 
 ### post /persons
 
 Deze post zorgt ervoor dat we een personage kunnen toevoegen aan een bepaald film id.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/fd733bfd-647c-4305-ba45-c99b5521e478)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/ba52a6ff-040f-498e-b3dd-30900261b9ce)
+
 
 ### Error handeling post /persons
 
 Als een personage al in de database bestaat zal er een error komen deze ziet er uit als volgt.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/81b8bf8b-fc55-4307-a5c3-9e1b6be9ecd6)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/beacb627-4411-4843-b47f-3222980aa3e1)
+
 
 
 
 ### post /starships
 
 Deze post zal starships toevoegen aan een film via de film id.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/1f3f1c6b-1361-4d55-8179-c9b5afe2daef)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/958b0abe-2f0b-4da3-baaf-4962f34f8129)
+
 
 ### Error handeling post /starships
 
 Als er een bepaald starship al in de database staat dan zal er een error gegenereerd worden deze ziet er als volgt uit.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/d78c9eee-1cf8-40d6-adec-71e58a603d0d)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/11fe9813-f580-45f6-aa05-e2e434ecd6fa)
+
 
 
 > we zullen nu verder gaan met de get requests. Dit wil zeggen dat we verschillende items uit de tabellen gaan halen.
