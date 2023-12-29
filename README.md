@@ -12,14 +12,16 @@ Dit biedt me de kans om met iets gevarieerd te werken en waar ook zeer veel uitb
 ## Werking API
 
 Als basis voor mijn API heb ik een Sqlite-databank gebruikt.
-In de databank zitten 3 tabellen: 
+In de databank zitten 4 tabellen: 
 1. Films
 2. Persons
 3. Starships
+4. users
 
-In de databank kunnen kan je per film de personages en de Starships toevoegen. Via de Api kan je zowel ze oproepen of verwijderen en je kan ook de volledige database in zijn geheel ophalen.
+In de databank kunnen kan je per film de personages en de Starships toevoegen. Via de Api kan je zowel ze oproepen of verwijderen en je kan ook de volledige database in zijn geheel ophalen. Je kan ook je film tittel aanpassen en je film op id verwijderen moest je iets fout hebben gedaan. De users is voor de authenticatie om de volledige databank in jason formaat te kunnen zien en de users op te halen.
 
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/11a26828-1db3-436a-aa37-368fae0a41c3)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/379359c5-f749-4595-a791-277fc9f572b2)
+
 ### link naar API:
 
 https://useritem-api-service-verbovensteve.cloud.okteto.net/docs 
