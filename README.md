@@ -93,16 +93,12 @@ Deze request zal de persoon bij naam zoeken en uit de database ophalen.
 ![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/abc9550d-7117-4af3-8ad0-c391903c98d6)
 
 
-### Error handeling get /persons/
-
-Als we de naam van een personage dat niet bestaat invoeren dan krijgen we een error.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/af87e3c6-7692-433b-b2f0-4984fa650d07)
-
 
 ### get /starships
 
 Deze request haalt alle starships uit de database.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/86f81e34-6cbf-4fc2-9027-982e8674314c)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/2e859287-cddc-4c7b-b49d-694771801f27)
+
 
 ### Error handeling starships
 
