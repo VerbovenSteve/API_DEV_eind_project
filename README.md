@@ -24,7 +24,7 @@ In de databank kunnen kan je per film de personages en de Starships toevoegen. V
 
 ### link naar API:
 
-https://useritem-api-service-verbovensteve.cloud.okteto.net/docs 
+https://star-wars-api-verbovensteve.cloud.okteto.net/docs 
 
 In het volgende deel zal ik alle functies laten zien van de interface.
 > we beginnen bij de post requests. Dit wil zeggen het opvullen van de verschillende tabellen
