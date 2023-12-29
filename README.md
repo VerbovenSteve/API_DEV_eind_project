@@ -90,7 +90,8 @@ Als we een film gaan zoeken met een id dat niet in de database te vinden is krij
 ### get /persons/
 
 Deze request zal de persoon bij naam zoeken en uit de database ophalen.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/a44bb155-fc2c-47e2-a42d-e1cce146c07c)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/abc9550d-7117-4af3-8ad0-c391903c98d6)
+
 
 ### Error handeling get /persons/
 
