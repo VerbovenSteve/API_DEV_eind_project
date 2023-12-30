@@ -20,7 +20,6 @@ In de databank zitten 4 tabellen:
 
 In mijn databank kan je een user aanmaken deze is word geauthenticeerd en met deze user kan je inloggen om zowel de users als alle films met de acteurs en startships te kunnen opvragen van de databank. Daarnaast aangezien Star Wars enorm veelzijdig is heb ik er voor gekozen dat iedereen bij kan dragen aan het toevoegen van films, acteurs of starships. Er komen zoveel acteurs in films voor en starships dat het bijna onmogelijk is alles te kunnen toevoegen. Dit is dan ook de grootste reden dat ik voor dit onderwerp heb gekozen. Er komen nog steeds series, animatie films van Star Wars uit deze kunnen ook toegevoegd worden aan de films bij wijze van afwisseling.
 
-![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/379359c5-f749-4595-a791-277fc9f572b2)
 
 ### link naar API:
 
