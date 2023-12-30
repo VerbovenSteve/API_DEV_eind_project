@@ -1,4 +1,4 @@
-# Basisproject API Development
+# Eindroject API Development
 ## Thema
 
 Voor mijn project heb ik gekozen voor Star Wars:
@@ -8,6 +8,8 @@ Het universum, de personages, en de verhalen boeien me enorm.
 Hierdoor is het werken aan een project binnen dit thema niet alleen een professionele uidaging, maar ook een kans om te werken met iets waar ik graag met bezig ben.
 Binnen de Star Wars-wereld is er een breed scala van entiteiten zoals films, personages en starships maar ook enorm veel collectors items of speelgoed.
 Dit biedt me de kans om met iets gevarieerd te werken en waar ook zeer veel uitbreidingsmogelijkheden inzitten.
+
+De toevoegingen die ik gedaan heb zijn voor alle endpoints testen maken en deze runnen via github actions.
 
 ## Werking API
 
