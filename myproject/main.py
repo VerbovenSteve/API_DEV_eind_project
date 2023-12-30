@@ -15,7 +15,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
-    "https://main--illustrious-daifuku-1e9cbe.netlify.app/",
+    "https://illustrious-daifuku-1e9cbe.netlify.app",
     "https://localhost:8080",
     "http://127.0.0.1:5500",
     "https://localhost.tiangolo.com"
