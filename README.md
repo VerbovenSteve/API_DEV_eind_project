@@ -6,7 +6,7 @@ Voor mijn project heb ik gekozen voor Star Wars:
 Star Wars is een franchise waar ik zelf gepassioneerd over ben.
 Het universum, de personages, en de verhalen boeien me enorm.
 Hierdoor is het werken aan een project binnen dit thema niet alleen een professionele uidaging, maar ook een kans om te werken met iets waar ik graag met bezig ben.
-Binnen de Star Wars-wereld is er een breed scala van entiteiten zoals films, personages en starships maar ook enorm veel collector items of speelgoed.
+Binnen de Star Wars-wereld is er een breed scala van entiteiten zoals films, personages en starships maar ook enorm veel collectors items of speelgoed.
 Dit biedt me de kans om met iets gevarieerd te werken en waar ook zeer veel uitbreidingsmogelijkheden inzitten.
 
 ## Werking API
@@ -18,7 +18,7 @@ In de databank zitten 4 tabellen:
 3. Starships
 4. users
 
-In de databank kunnen kan je per film de personages en de Starships toevoegen. Via de Api kan je zowel ze oproepen of verwijderen en je kan ook de volledige database in zijn geheel ophalen. Je kan ook je film tittel aanpassen en je film op id verwijderen moest je iets fout hebben gedaan. De users is voor de authenticatie om de volledige databank in jason formaat te kunnen zien en de users op te halen.
+In mijn databank kan je een user aanmaken deze is word geauthenticeerd en met deze user kan je inloggen om zowel de users als alle films met de acteurs en startships te kunnen opvragen van de databank. Daarnaast aangezien Star Wars enorm veelzijdig is heb ik er voor gekozen dat iedereen bij kan dragen aan het toevoegen van films, acteurs of starships. Er komen zoveel acteurs in films voor en starships dat het bijna onmogelijk is alles te kunnen toevoegen. Dit is dan ook de grootste reden dat ik voor dit onderwerp heb gekozen. Er komen nog steeds series, animatie films van Star Wars uit deze kunnen ook toegevoegd worden aan de films bij wijze van afwisseling.
 
 ![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/379359c5-f749-4595-a791-277fc9f572b2)
 
@@ -26,8 +26,15 @@ In de databank kunnen kan je per film de personages en de Starships toevoegen. V
 
 https://star-wars-api-verbovensteve.cloud.okteto.net/docs 
 
+## OpenAPI 
+### screenshot van de api in OpenAPI
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/f2f1d57e-1e7f-4b19-a588-f73b03e92252)
+
+
 In het volgende deel zal ik alle functies laten zien van de interface.
 > we beginnen bij de post requests. Dit wil zeggen het opvullen van de verschillende tabellen
+
+## postman screenshots en uitleg
 ## post 
 
 ### post /films
@@ -131,16 +138,7 @@ Als we een film willen verwijderen uit de data bank dan kunnen we dit als volgt 
 
 ### Errorhandeling delete /films/{film_id}
 Als de film id niet bestaat en je wil deleten dan krijg je een error.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/f1393bd1-12fe-42ac-adbf-ce0611b16951)
+![image](https://github.com/VerbovenSteve/API_DEV_eind_project/assets/113888137/dab5c279-495a-4d61-b7ba-086aea0d5fcf)
 
 
 
-# De database is terug leeg?
-
-Bij wijze van afsluiting laat ik graag nog zien dat de database terug volledig leeg is.
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/b09a2f52-d08e-4756-bd9e-b75a5c7867f2)
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/158138d9-f76c-4797-ae1c-2e8f214096e3)
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/6101232b-6067-414e-b83a-b15b41ed417a)
-![image](https://github.com/VerbovenSteve/api_development/assets/113888137/3ef8f02e-5f3d-401b-b387-f4b70b38a9f1)
-> Zoals we kunnen zien in bovenstaande afbeeldingen is de data base volledig leeg en vinden we geen films, persons of starships meer.
-> Zodat jullie zelf zouden kunnen testen zal ik ook de database terug opvullen.
